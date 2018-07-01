@@ -1,13 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Layout from '../pages/Home/index'
-
+import Home from '../pages/Home/index'
+import Catalog from '../pages/Catalog/index'
 
 Vue.use(VueRouter);
 
 const routes=[{
   path:'/',
-  component:Layout,
+  component:Home,
+},{
+  path:'/catalog',
+  component:Catalog
 }];
 
 

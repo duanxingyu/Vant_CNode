@@ -33,5 +33,20 @@ export default {
       result = '刚刚'
     }
     return result
+  },
+  getTags(val){
+    let res='';
+    if(val==='ask'){
+      res='问答';
+    }else if (val === 'share') {
+      res='分享';
+    }else if (val === 'good') {
+      res='精华'
+    }else if(val==='job'){
+      res='招聘'
+    }else{
+      res='测试'
+    }
+    return res;
   }
 }

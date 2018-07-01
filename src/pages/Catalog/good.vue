@@ -5,27 +5,15 @@
         <img :src="i.author.avatar_url" width="40" height="40"/>
         <div class="pannel-header_username">{{i.author.loginname}}</div>
         <div class="panel-header_tab">
-          <div v-if="i.tab==='share'">
-            <van-tag type="success">{{utils.getTags(i.tab)}}</van-tag>
-          </div>
-          <div v-else-if="i.tab==='ask'">
-            <van-tag type="primary">{{utils.getTags(i.tab)}}</van-tag>
-          </div>
-          <div v-else-if="i.tab='good'">
-            <van-tag type="danger">{{utils.getTags(i.tab)}}</van-tag>
-          </div>
-          <div v-else-if="i.tab='job'">
-            <van-tag type="warning">{{utils.getTags(i.tab)}}</van-tag>
-          </div>
-          <div v-else>
-            <van-tag type="warning">{{utils.getTags(i.tab)}}</van-tag>
-          </div>
+          <!--<div v-if="i.good===true&&i.tab==='good'">-->
+            <!--<van-tag type="success">{{utils.getTags(i.good)}}</van-tag>-->
+          <!--</div>-->
+          <van-tag type="danger" v-if="i.tab='good' ">{{utils.getTags(i.tab)}}</van-tag>
 
 
         </div>
       </div>
-
-      <div class="pannel-body" @click="bodyClick">
+      <div class="pannel-body">
         <span>{{i.title}}</span>
       </div>
       <div class="pannel-footer">
@@ -48,16 +36,16 @@
 
 <script>
   import {Icon,Tag,Button} from 'vant'
-// window.onload=function () {
-//    function sort() {
-//       var fruits = ["Banana", "Orange", "Apple", "Mango"];
-//       var data=fruits.unshift(0)
-//       console.log(data)
-//   }
-//   return sort()
-// };
+  // window.onload=function () {
+  //    function sort() {
+  //       var fruits = ["Banana", "Orange", "Apple", "Mango"];
+  //       var data=fruits.unshift(0)
+  //       console.log(data)
+  //   }
+  //   return sort()
+  // };
   export default {
-    name: "topics",
+    name: "good",
     components: {
       [Icon.name]:Icon,
       [Tag.name]:Tag,
@@ -83,6 +71,7 @@
           }
         }).then(res => {
           console.log(res.data.data);
+          console.log(res.data.data[0]["good"]);
           this.list = res.data.data;
           this.page++;
           this.limit+=10;
@@ -91,9 +80,6 @@
         })
 
       },
-      bodyClick(){
-        this.$router.push('/catalog')
-      }
     }
 
   };
@@ -101,7 +87,7 @@
 
 <style scoped>
   .pannel-container:first-child {
-    margin-top: 46px;
+    /*margin-top: 46px;*/
   }
 
   .pannel-container:last-child {

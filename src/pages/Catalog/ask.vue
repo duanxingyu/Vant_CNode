@@ -5,27 +5,14 @@
         <img :src="i.author.avatar_url" width="40" height="40"/>
         <div class="pannel-header_username">{{i.author.loginname}}</div>
         <div class="panel-header_tab">
-          <div v-if="i.tab==='share'">
-            <van-tag type="success">{{utils.getTags(i.tab)}}</van-tag>
-          </div>
-          <div v-else-if="i.tab==='ask'">
-            <van-tag type="primary">{{utils.getTags(i.tab)}}</van-tag>
-          </div>
-          <div v-else-if="i.tab='good'">
-            <van-tag type="danger">{{utils.getTags(i.tab)}}</van-tag>
-          </div>
-          <div v-else-if="i.tab='job'">
-            <van-tag type="warning">{{utils.getTags(i.tab)}}</van-tag>
-          </div>
-          <div v-else>
-            <van-tag type="warning">{{utils.getTags(i.tab)}}</van-tag>
+          <div>
+            <van-tag type="primary" v-if="i.tab='ask'">{{utils.getTags(i.tab)}}</van-tag>
           </div>
 
 
         </div>
       </div>
-
-      <div class="pannel-body" @click="bodyClick">
+      <div class="pannel-body">
         <span>{{i.title}}</span>
       </div>
       <div class="pannel-footer">
@@ -48,16 +35,16 @@
 
 <script>
   import {Icon,Tag,Button} from 'vant'
-// window.onload=function () {
-//    function sort() {
-//       var fruits = ["Banana", "Orange", "Apple", "Mango"];
-//       var data=fruits.unshift(0)
-//       console.log(data)
-//   }
-//   return sort()
-// };
+  // window.onload=function () {
+  //    function sort() {
+  //       var fruits = ["Banana", "Orange", "Apple", "Mango"];
+  //       var data=fruits.unshift(0)
+  //       console.log(data)
+  //   }
+  //   return sort()
+  // };
   export default {
-    name: "topics",
+    name: "ask",
     components: {
       [Icon.name]:Icon,
       [Tag.name]:Tag,
@@ -65,7 +52,8 @@
     },
     data() {
       return {
-        list: {},
+        list: [],
+        // tabs:[],
         limit:10,
         page:1,
       }
@@ -84,6 +72,12 @@
         }).then(res => {
           console.log(res.data.data);
           this.list = res.data.data;
+          var data=res.data.data
+          // let arr=[];
+          // for(let i = 0;i<data.length;i++){
+          //   arr.push(data[i]['tab']);
+          //
+          // }
           this.page++;
           this.limit+=10;
         }).catch(error => {
@@ -91,9 +85,6 @@
         })
 
       },
-      bodyClick(){
-        this.$router.push('/catalog')
-      }
     }
 
   };
@@ -101,7 +92,7 @@
 
 <style scoped>
   .pannel-container:first-child {
-    margin-top: 46px;
+    /*margin-top: 46px;*/
   }
 
   .pannel-container:last-child {

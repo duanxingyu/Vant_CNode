@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar
+    <van-nav-bar fixed="fixed"
       title="CNodejs中文社区">
       <van-icon name="search" slot="right"  @click="onClickRight"/>
     </van-nav-bar>
@@ -9,13 +9,16 @@
 
 <script>
   import {NavBar,Icon,Toast} from 'vant'
-
   export default {
     name: "headers",
     components:{
-      [NavBar.name]:NavBar,
-      [Icon.name]:Icon,
+      [NavBar.name]:NavBar,      [Icon.name]:Icon,
       [Toast.name]:Toast
+    },
+    data(){
+      return{
+        fixed:true,
+      }
     },
     methods: {
       onClickRight() {
