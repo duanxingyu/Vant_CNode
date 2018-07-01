@@ -68,6 +68,7 @@
           params:{
             limit:this.limit,
             page:this.page,
+            tab:'good'
           }
         }).then(res => {
           console.log(res.data.data);

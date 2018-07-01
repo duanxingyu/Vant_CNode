@@ -67,6 +67,7 @@
           params:{
             limit:this.limit,
             page:this.page,
+            tab:'job'
           }
         }).then(res => {
           console.log(res.data.data);

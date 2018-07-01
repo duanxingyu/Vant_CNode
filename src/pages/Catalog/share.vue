@@ -8,8 +8,6 @@
           <div v-if="i.tab='share'">
             <van-tag type="success">{{utils.getTags(i.tab)}}</van-tag>
           </div>
-
-
         </div>
       </div>
       <div class="pannel-body">
@@ -55,6 +53,7 @@
         list: {},
         limit:10,
         page:1,
+        tab:'share'
       }
     },
     created() {

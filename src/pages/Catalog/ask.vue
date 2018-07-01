@@ -5,8 +5,8 @@
         <img :src="i.author.avatar_url" width="40" height="40"/>
         <div class="pannel-header_username">{{i.author.loginname}}</div>
         <div class="panel-header_tab">
-          <div>
-            <van-tag type="primary" v-if="i.tab='ask'">{{utils.getTags(i.tab)}}</van-tag>
+          <div v-if="i.tab='ask'">
+            <van-tag type="primary" >{{utils.getTags(i.tab)}}</van-tag>
           </div>
 
 
@@ -68,6 +68,7 @@
           params:{
             limit:this.limit,
             page:this.page,
+            tab:'ask'
           }
         }).then(res => {
           console.log(res.data.data);

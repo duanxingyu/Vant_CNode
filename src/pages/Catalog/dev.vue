@@ -5,8 +5,8 @@
         <img :src="i.author.avatar_url" width="40" height="40"/>
         <div class="pannel-header_username">{{i.author.loginname}}</div>
         <div class="panel-header_tab">
-          <div v-if="i.tab='dev'">
-            <van-tag >{{utils.getTags(i.tab)}}</van-tag>
+          <div >
+            <van-tag v-if="i.tab='dev'">{{utils.getTags(i.tab)}}</van-tag>
           </div>
 
 
@@ -55,6 +55,7 @@
         list: {},
         limit:10,
         page:1,
+
       }
     },
     created() {
@@ -67,6 +68,7 @@
           params:{
             limit:this.limit,
             page:this.page,
+            tab:'dev'
           }
         }).then(res => {
           console.log(res.data.data);
