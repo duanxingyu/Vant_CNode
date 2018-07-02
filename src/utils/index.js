@@ -34,6 +34,20 @@ export default {
     }
     return result
   },
+  getTop(val){
+    let res=''
+    if (val===true){
+      res='置顶'
+    }
+    return res;
+  },
+  getGood(val){
+    let res='';
+    if(val===true){
+      res='精华'
+    }
+    return res;
+  },
   getTags(val){
     let res='';
     if(val==='ask'){

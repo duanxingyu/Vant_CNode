@@ -1,33 +1,33 @@
 <template>
-  <div  >
-    <div class="pannel-container animated  flipInX"  ref="topicList" v-for="i in list">
+  <div>
+    <div class="pannel-container animated  flipInX" ref="topicList" v-for="i in list">
       <div class='pannel-header'>
         <img :src="i.author.avatar_url" width="40" height="40"/>
         <div class="pannel-header_username">{{i.author.loginname}}</div>
         <div class="panel-header_tab">
-          <div v-if="i.tab==='share'">
-            <van-tag type="success">{{utils.getTags(i.tab)}}</van-tag>
+          <div v-if="true?i.top:i.good">
+            <van-tag type="danger">{{utils.getTop(i.top)}}</van-tag>
           </div>
-          <div v-else-if="i.tab==='ask'">
-            <van-tag type="primary">{{utils.getTags(i.tab)}}</van-tag>
+
+          <div v-else-if="true?i.good:i.top">
+            <van-tag type="success">{{utils.getGood(i.good)}}</van-tag>
           </div>
-          <div v-else-if="i.tab='good'">
-            <van-tag type="danger">{{utils.getTags(i.tab)}}</van-tag>
-          </div>
-          <div v-else-if="i.tab='job'">
-            <van-tag type="warning">{{utils.getTags(i.tab)}}</van-tag>
-          </div>
+
           <div v-else>
-            <van-tag type="warning">{{utils.getTags(i.tab)}}</van-tag>
+            <van-tag type="primary">{{utils.getTags(i.tab)}}</van-tag>
           </div>
 
 
         </div>
       </div>
 
-      <div class="pannel-body" @click="bodyClick">
-        <span>{{i.title}}</span>
-      </div>
+      <router-link :to="'/content/'+i.id">
+        <div class="pannel-body" @click="bodyClick">
+          <span> {{i.title}} </span>
+        </div>
+      </router-link>
+
+
       <div class="pannel-footer">
         <div class="visit">
           <van-icon name="password-view"></van-icon>
@@ -47,27 +47,27 @@
 </template>
 
 <script>
-  import {Icon,Tag,Button} from 'vant'
-// window.onload=function () {
-//    function sort() {
-//       var fruits = ["Banana", "Orange", "Apple", "Mango"];
-//       var data=fruits.unshift(0)
-//       console.log(data)
-//   }
-//   return sort()
-// };
+  import {Icon, Tag, Button} from 'vant'
+  // window.onload=function () {
+  //    function sort() {
+  //       var fruits = ["Banana", "Orange", "Apple", "Mango"];
+  //       var data=fruits.unshift(0)
+  //       console.log(data)
+  //   }
+  //   return sort()
+  // };
   export default {
     name: "topics",
     components: {
-      [Icon.name]:Icon,
-      [Tag.name]:Tag,
-      [Button.name]:  Button
+      [Icon.name]: Icon,
+      [Tag.name]: Tag,
+      [Button.name]: Button
     },
     data() {
       return {
         list: {},
-        limit:10,
-        page:1,
+        limit: 10,
+        page: 1,
       }
     },
     created() {
@@ -76,23 +76,22 @@
     methods: {
       getData() {
         var url = this.HOST;
-        this.$axios.get(url + '/topics',{
-          params:{
-            limit:this.limit,
-            page:this.page,
+        this.$axios.get(url + '/topics', {
+          params: {
+            limit: this.limit,
+            page: this.page,
           }
         }).then(res => {
           console.log(res.data.data);
           this.list = res.data.data;
           this.page++;
-          this.limit+=10;
         }).catch(error => {
           console.log(error);
         })
 
       },
-      bodyClick(){
-        this.$router.push('/catalog')
+      bodyClick() {
+
       }
     }
 
@@ -127,7 +126,7 @@
 
   .panel-header_tab {
     position: absolute;
-    width:50px;
+    width: 50px;
     top: 50%;
     left: 50%;
     margin: -15px 120px;
@@ -153,6 +152,10 @@
   .pannel-body span {
     display: block;
     margin: 20px 30px;
+  }
+
+  .pannel-container  a {
+    color: #3c3c3c;
   }
 
   .pannel-footer {
@@ -181,7 +184,8 @@
   .pannel-footer > .visit > span, .pannel-footer .comment > span, .pannel-footer .times > span {
     font-size: 14px;
   }
-  .visit:active,.comment:active,.times:active{
+
+  .visit:active, .comment:active, .times:active {
     background: #ccc;
   }
 </style>
