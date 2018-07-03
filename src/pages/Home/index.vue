@@ -1,8 +1,7 @@
 <template>
   <div>
     <Header></Header>
-    <PullRefresh></PullRefresh>
-    <!--<Topics></Topics>-->
+    <PullRefresh ></PullRefresh>
     <Tabbar></Tabbar>
   </div>
 </template>
@@ -20,6 +19,9 @@
       // Topics,
       PullRefresh,
       Tabbar
+    },
+    created(){
+
     }
   }
 </script>

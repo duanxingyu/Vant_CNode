@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Vant_CNode.iml" filepath="$PROJECT_DIR$/.idea/Vant_CNode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cnodejs.iml" filepath="$PROJECT_DIR$/.idea/cnodejs.iml" />
     </modules>
   </component>
 </project>

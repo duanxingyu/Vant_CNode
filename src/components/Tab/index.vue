@@ -1,5 +1,5 @@
 <template>
-  <van-tabs v-model="active">
+  <van-tabs v-model="active" swipeable >
     <van-tab  title="精华"  >
       <Good></Good>
     </van-tab>

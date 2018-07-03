@@ -48,14 +48,7 @@
 
 <script>
   import {Icon, Tag, Button} from 'vant'
-  // window.onload=function () {
-  //    function sort() {
-  //       var fruits = ["Banana", "Orange", "Apple", "Mango"];
-  //       var data=fruits.unshift(0)
-  //       console.log(data)
-  //   }
-  //   return sort()
-  // };
+
   export default {
     name: "topics",
     components: {
@@ -75,8 +68,8 @@
     },
     methods: {
       getData() {
-        var url = this.HOST;
-        this.$axios.get(url + '/topics', {
+        var url = this.HOST + '/topics';
+        this.$axios.get(url, {
           params: {
             limit: this.limit,
             page: this.page,
@@ -91,7 +84,7 @@
 
       },
       bodyClick() {
-
+        // this.$router.push()
       }
     }
 
@@ -154,7 +147,7 @@
     margin: 20px 30px;
   }
 
-  .pannel-container  a {
+  .pannel-container a {
     color: #3c3c3c;
   }
 
