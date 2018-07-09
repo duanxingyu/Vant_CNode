@@ -10,9 +10,11 @@
           </div>
         </div>
       </div>
-      <div class="pannel-body">
-        <span>{{i.title}}</span>
-      </div>
+      <router-link :to="'/content/'+i.id">
+        <div class="pannel-body">
+          <span>{{i.title}}</span>
+        </div>
+      </router-link>
       <div class="pannel-footer">
         <div class="visit">
           <van-icon name="password-view"></van-icon>
@@ -99,6 +101,9 @@
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 6px;
+  }
+  .pannel-container a {
+    color: #3c3c3c;
   }
 
   .pannel-header {

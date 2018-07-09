@@ -13,9 +13,11 @@
 
         </div>
       </div>
-      <div class="pannel-body">
-        <span>{{i.title}}</span>
-      </div>
+      <router-link :to="'/content/'+i.id">
+        <div class="pannel-body">
+          <span>{{i.title}}</span>
+        </div>
+      </router-link>
       <div class="pannel-footer">
         <div class="visit">
           <van-icon name="password-view"></van-icon>
@@ -56,6 +58,7 @@
         list: {},
         limit:10,
         page:1,
+        id:this.$route.params.id,
       }
     },
     created() {
@@ -63,8 +66,8 @@
     },
     methods: {
       getData() {
-        var url = this.HOST;
-        this.$axios.get(url + '/topics',{
+        var url = this.HOST+ '/topics';
+        this.$axios.get(url,{
           params:{
             limit:this.limit,
             page:this.page,
@@ -103,6 +106,9 @@
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 6px;
+  }
+  .pannel-container a {
+    color: #3c3c3c;
   }
 
   .pannel-header {
