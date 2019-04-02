@@ -1,7 +1,7 @@
 <template>
   <div>
     <van-nav-bar  fixed
-      title="标题"
+      :title="navbar.title"
       left-text="返回"
       right-text="按钮"
       left-arrow
@@ -17,6 +17,12 @@
 
   export default {
     name: "NavBar",
+    props:{
+      navbar:{
+        type:Object,
+        required:true,
+      }
+    },
     components: {
       [NavBar.name] : NavBar,
     },

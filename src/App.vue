@@ -5,9 +5,9 @@
       <!--<van-cell is-link icon="gift" title="我收到的礼物" />-->
     <!--</van-cell-group>-->
 
-    <keep-alive>
+    <!--<keep-alive>-->
       <router-view></router-view>
-    </keep-alive>
+    <!--</keep-alive>-->
   </div>
 </template>
 
@@ -20,6 +20,11 @@ export default {
     [Cell.name]: Cell,
     [CellGroup.name]: CellGroup,
     [Icon.name]: Icon
+  },
+  data(){
+    return{
+
+    }
   }
 };
 </script>

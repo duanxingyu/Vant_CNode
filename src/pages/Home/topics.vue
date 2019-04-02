@@ -22,7 +22,7 @@
       </div>
 
       <router-link :to="'/content/'+i.id">
-        <div class="pannel-body" @click="bodyClick">
+        <div class="pannel-body">
           <span> {{i.title}} </span>
         </div>
       </router-link>
@@ -63,7 +63,7 @@
         page: 1,
       }
     },
-    created() {
+    mounted() {
       this.getData();
     },
     methods: {
@@ -83,9 +83,6 @@
         })
 
       },
-      bodyClick() {
-        // this.$router.push()
-      }
     }
 
   };

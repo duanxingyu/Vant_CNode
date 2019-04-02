@@ -1,42 +1,51 @@
 <template>
-
-  <div style="margin: 60px 10px 30px 10px;" ref="topic">
+  <div style="margin: 60px 10px 30px 10px;" ref="topics">
     <div>
-      <h2 v-text="data.title"></h2>
+      <h2 v-text="contentList.title"></h2>
       <div style="text-align: center">
-        作者：<span class="author" v-for="i in data">{{i.loginname}}</span><br/>
-        <span class="create_time">发表于：{{utils.getTime(data.create_at)}}</span>
+        作者：<span class="author" v-for="i in contentList">{{i.loginname}}</span><br/>
+        <span class="create_time">发表于：{{utils.getTime(contentList.create_at)}}</span>
       </div>
       <div class="text item">
-        <article id="article" class="markdown-body" v-html="data.content"></article>
+        <article id="article" class="markdown-body" v-html="contentList.content"></article>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import router from "../../../router";
+
   export default {
     name: "contents",
+    props:{
+      contentList:{
+        type:Object,
+        required:true
+      }
+    },
     data() {
       return {
-        id: this.$route.params.id,
-        data: {},
-        loginname: '',
+        // id: this.$route.params.id,
+        // data: this.props.contentList,
+        // loginname: '',
       }
     },
     created() {
-      this.getData();
+      // this.getData();
+      // console.log(this.props.contentList)
     },
     methods: {
-      getData() {
-        let url = this.HOST + '/topic/';
-        this.$axios.get(url + this.id).then(res => {
-          this.data = res.data.data;
-          console.log(res.data.data)
-        }).catch(error => {
-          console.log(error)
-        })
-      }
+      // getData() {
+      //   console.log(this.id)
+      //   let url = this.HOST + '/topic/';
+      //   this.$axios.get(url + this.id).then(res => {
+      //     this.data = res.data.data;
+      //     console.log(res.data.data)
+      //   }).catch(error => {
+      //     console.log(error)
+      //   })
+      // }
     }
   }
 </script>

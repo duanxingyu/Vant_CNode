@@ -44,7 +44,7 @@
   //   return sort()
   // };
   export default {
-    name: "topics",
+    name: "share",
     components: {
       [Icon.name]:Icon,
       [Tag.name]:Tag,

@@ -10,10 +10,12 @@ const routes=[{
   path:'/',
   component:Home,
   children:[]
-},{
+},
+  {
   path:'/catalog',
   component:Catalog
-},{
+},
+  {
   path:'/content/:id',
   component:Content
 }];

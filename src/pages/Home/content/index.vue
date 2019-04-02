@@ -1,7 +1,7 @@
 <template>
   <div>
-    <NavBar></NavBar>
-    <Content></Content>
+    <NavBar :navbar = "contentList"></NavBar>
+    <Content :contentList="contentList"></Content>
   </div>
 
 </template>
@@ -15,6 +15,28 @@
     components: {
       NavBar,
       Content
+    },
+    data(){
+      return{
+        id: this.$route.params.id,
+        contentList: {},
+        loginname: '',
+      }
+    },
+    created() {
+      this.getData();
+    },
+    methods:{
+      getData() {
+        let url = this.HOST + '/topic/';
+        this.$axios.get(url + this.id).then(res => {
+          this.contentList = res.data.data;
+          console.log(res.data.data)
+
+        }).catch(error => {
+          console.log(error)
+        })
+      }
     }
   }
 </script>
