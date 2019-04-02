@@ -11,11 +11,11 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
   import router from "../../../router";
-
   export default {
     name: "contents",
     props:{
@@ -23,6 +23,8 @@
         type:Object,
         required:true
       }
+    },
+    components:{
     },
     data() {
       return {

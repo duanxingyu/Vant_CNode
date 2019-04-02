@@ -19,15 +19,15 @@
       </router-link>
       <div class="pannel-footer">
         <div class="visit">
-          <van-icon name="password-view"></van-icon>
+          <van-icon name="eye-o" size="20px"></van-icon>
           <span>&nbsp;{{i.visit_count}}</span>
         </div>
         <div class="comment">
-          <van-icon name="pending-evaluate"></van-icon>
+          <van-icon name="chat-o" size="20px"></van-icon>
           <span>&nbsp;{{i.reply_count}}</span>
         </div>
         <div class="times">
-          <van-icon name="clock"></van-icon>
+          <van-icon name="clock-o" size="20px"></van-icon>
           <span>&nbsp;{{utils.getTime(i.create_at)}}</span>
         </div>
       </div>

@@ -9,7 +9,10 @@ Vue.use(VueRouter);
 const routes=[{
   path:'/',
   component:Home,
-  children:[]
+  children:[],
+  meta:{
+    keepalive:true
+  }
 },
   {
   path:'/catalog',

@@ -1,7 +1,8 @@
 <template>
   <div>
     <NavBar :navbar = "contentList"></NavBar>
-    <Content :contentList="contentList"></Content>
+    <Content :contentList="contentList" ></Content>
+
   </div>
 
 </template>
@@ -14,7 +15,8 @@
     name: "index",
     components: {
       NavBar,
-      Content
+      Content,
+
     },
     data(){
       return{
@@ -28,11 +30,12 @@
     },
     methods:{
       getData() {
+        this.toast.loading();
         let url = this.HOST + '/topic/';
         this.$axios.get(url + this.id).then(res => {
           this.contentList = res.data.data;
           console.log(res.data.data)
-
+          this.toast.hideLoading();
         }).catch(error => {
           console.log(error)
         })

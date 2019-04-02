@@ -5,9 +5,10 @@
       <!--<van-cell is-link icon="gift" title="我收到的礼物" />-->
     <!--</van-cell-group>-->
 
-    <!--<keep-alive>-->
-      <router-view></router-view>
-    <!--</keep-alive>-->
+    <keep-alive>
+      <router-view v-if="$route.meta.keepalive"></router-view>
+    </keep-alive>
+    <router-view></router-view>
   </div>
 </template>
 

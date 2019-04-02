@@ -4,10 +4,10 @@ import router from './router';
 import axios from 'axios'
 import utils from './utils/index'
 import './assets/animate.min.css'
-// import {Tag} from 'vant'
-//
-// Vue.use(Tag)
+import toast from './assets/js/toast'
+
 Vue.prototype.$axios=axios;
+Vue.prototype.toast = toast;
 Vue.prototype.HOST='/api';
 Vue.prototype.utils=utils;
 Vue.config.productionTip = false;
