@@ -66,6 +66,7 @@
     },
     methods: {
       getData() {
+        this.toast.loading();
         var url = this.HOST+ '/topics';
         this.$axios.get(url,{
           params:{
@@ -79,6 +80,7 @@
           this.list = res.data.data;
           this.page++;
           this.limit+=10;
+          this.toast.hideLoading();
         }).catch(error => {
           console.log(error);
         })

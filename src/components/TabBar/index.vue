@@ -4,7 +4,7 @@
     <van-tabbar-item  to="/" icon="wap-home" size="20px" >首页</van-tabbar-item>
     <van-tabbar-item  to="/catalog" icon="more-o" size="20px" dot>分类</van-tabbar-item>
     <van-tabbar-item  icon="chat" info="5" size="20px">消息</van-tabbar-item>
-    <van-tabbar-item  icon="contact" info="20" size="20px">我的</van-tabbar-item>
+    <van-tabbar-item  to="/personal" icon="contact" info="20" size="20px">我的</van-tabbar-item>
   </van-tabbar>
   </div>
 </template>

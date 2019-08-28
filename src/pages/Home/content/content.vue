@@ -7,7 +7,7 @@
         <span class="create_time">发表于：{{utils.getTime(contentList.create_at)}}</span>
       </div>
       <div class="text item">
-        <article id="article" class="markdown-body" v-html="contentList.content"></article>
+        <article id="article" class="markdown-body" v-html="contentList.content" @click="bodyClick"></article>
       </div>
     </div>
   </div>
@@ -16,6 +16,7 @@
 
 <script>
   import router from "../../../router";
+  import {ImagePreview } from 'vant'
   export default {
     name: "contents",
     props:{
@@ -25,12 +26,14 @@
       }
     },
     components:{
+      [ImagePreview.name]:ImagePreview
     },
     data() {
       return {
         // id: this.$route.params.id,
         // data: this.props.contentList,
         // loginname: '',
+        list:[]
       }
     },
     created() {
@@ -48,6 +51,17 @@
       //     console.log(error)
       //   })
       // }
+
+      bodyClick(e){
+        console.log(e)
+
+        //如果点击的对象是一个img标签，则执行点击放大
+        if(e.target instanceof HTMLImageElement){
+          ImagePreview({
+            images:[e.target.src]
+          })
+        }
+      }
     }
   }
 </script>

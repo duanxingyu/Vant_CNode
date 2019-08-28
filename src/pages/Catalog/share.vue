@@ -63,17 +63,20 @@
     },
     methods: {
       getData() {
+        this.toast.loading();
         var url = this.HOST;
         this.$axios.get(url + '/topics',{
           params:{
             limit:this.limit,
             page:this.page,
+            tab:'share'
           }
         }).then(res => {
           console.log(res.data.data);
           this.list = res.data.data;
           this.page++;
           this.limit+=10;
+          this.toast.hideLoading();
         }).catch(error => {
           console.log(error);
         })

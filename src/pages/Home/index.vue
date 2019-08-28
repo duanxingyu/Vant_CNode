@@ -3,7 +3,7 @@
     <Header></Header>
     <PullRefresh ></PullRefresh>
     <!--<Topics></Topics>-->
-    <Tabbar></Tabbar>
+    <!--<Tabbar></Tabbar>-->
   </div>
 </template>
 

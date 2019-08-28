@@ -1,5 +1,5 @@
 <template>
-  <div  >
+  <div  id="ask">
     <div class="pannel-container animated  flipInX"  ref="topicList" v-for="i in list">
       <div class='pannel-header'>
         <img :src="i.author.avatar_url" width="40" height="40"/>
@@ -55,16 +55,17 @@
     data() {
       return {
         list: [],
-        // tabs:[],
         limit:10,
         page:1,
       }
     },
-    created() {
+    mounted() {
       this.getData();
+      // window.addEventListener('scroll',this.onScroll)
     },
     methods: {
       getData() {
+        this.toast.loading();
         var url = this.HOST;
         this.$axios.get(url + '/topics',{
           params:{
@@ -73,21 +74,48 @@
             tab:'ask'
           }
         }).then(res => {
-          console.log(res.data.data);
-          this.list = res.data.data;
+          this.toast.hideLoading();
           var data=res.data.data
-          // let arr=[];
-          // for(let i = 0;i<data.length;i++){
-          //   arr.push(data[i]['tab']);
-          //
-          // }
-          this.page++;
-          this.limit+=10;
+          let newData = this.list.concat(data);
+          this.list = newData
         }).catch(error => {
           console.log(error);
         })
 
       },
+      onScroll(){
+        //获取可滚动容器高度
+        let innerHeight = document.querySelector('#ask').clientHeight;
+        //获取屏幕尺寸高度
+        let outerHeight = document.documentElement.clientHeight;
+        //获取滚动高度
+        let scrollHeight = document.documentElement.scrollTop;
+        console.log('可滚动容器高度'+innerHeight)
+        console.log('屏幕尺寸高度：' + outerHeight);
+        console.log('滚动高度:'+scrollHeight)
+        if(innerHeight < outerHeight+scrollHeight) {
+          console.log('---------------到底啦jhjhjjhjhh-------------------')
+        }
+        /*if(innerHeight <= outHeight+scrollHeight){
+          this.toast.loading();
+          var url = this.HOST;
+          this.$axios.get(url + '/topics',{
+            params:{
+              limit:this.limit,
+              page:this.page+1,
+              tab:'ask'
+            }
+          }).then(res => {
+            this.toast.hideLoading();
+            var data=res.data.data
+            let newData = this.list.concat(data);
+            this.list = newData
+            this.page++;
+          }).catch(error => {
+            console.log(error);
+          })
+        }*/
+      }
     }
 
   };

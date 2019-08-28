@@ -1,89 +1,123 @@
 <template>
-  <div>
-    <div class="pannel-container animated  flipInX" ref="topicList" v-for="i in list">
-      <div class='pannel-header'>
-        <img :src="i.author.avatar_url" width="40" height="40"/>
-        <div class="pannel-header_username">{{i.author.loginname}}</div>
-        <div class="panel-header_tab">
-          <div v-if="true?i.top:i.good">
-            <van-tag type="danger">{{utils.getTop(i.top)}}</van-tag>
+  <div id="topics">
+      <div class="pannel-container animated  flipInX" ref="topicList" v-for="i in list">
+        <div class='pannel-header'>
+          <img :src="i.author.avatar_url" width="40" height="40"/>
+          <div class="pannel-header_username">{{i.author.loginname}}</div>
+          <div class="panel-header_tab">
+            <div v-if="true?i.top:i.good">
+              <van-tag type="danger">{{utils.getTop(i.top)}}</van-tag>
+            </div>
+
+            <div v-else-if="true?i.good:i.top">
+              <van-tag type="success">{{utils.getGood(i.good)}}</van-tag>
+            </div>
+
+            <div v-else>
+              <van-tag type="primary">{{utils.getTags(i.tab)}}</van-tag>
+            </div>
+
+
           </div>
+        </div>
 
-          <div v-else-if="true?i.good:i.top">
-            <van-tag type="success">{{utils.getGood(i.good)}}</van-tag>
+        <router-link :to="'/content/'+i.id">
+          <div class="pannel-body">
+            <span> {{i.title}} </span>
           </div>
+        </router-link>
 
-          <div v-else>
-            <van-tag type="primary">{{utils.getTags(i.tab)}}</van-tag>
+
+        <div class="pannel-footer">
+          <div class="visit" @click="visitClick(i.visit_count)">
+            <van-icon name="eye-o" size="20px"></van-icon>
+            <span>&nbsp;{{i.visit_count}}</span>
           </div>
-
-
+          <div class="comment">
+            <van-icon name="chat-o" size="20px"></van-icon>
+            <span>&nbsp;{{i.reply_count}}</span>
+          </div>
+          <div class="times">
+            <van-icon name="clock-o" size="20px"></van-icon>
+            <span>&nbsp;{{utils.getTime(i.create_at)}}</span>
+          </div>
         </div>
       </div>
-
-      <router-link :to="'/content/'+i.id">
-        <div class="pannel-body">
-          <span> {{i.title}} </span>
-        </div>
-      </router-link>
-
-
-      <div class="pannel-footer">
-        <div class="visit" @click="visitClick(i.visit_count)">
-          <van-icon name="eye-o" size="20px"></van-icon>
-          <span>&nbsp;{{i.visit_count}}</span>
-        </div>
-        <div class="comment">
-          <van-icon name="chat-o" size="20px"></van-icon>
-          <span>&nbsp;{{i.reply_count}}</span>
-        </div>
-        <div class="times">
-          <van-icon name="clock-o" size="20px"></van-icon>
-          <span>&nbsp;{{utils.getTime(i.create_at)}}</span>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
-  import {Icon, Tag, Button} from 'vant'
+  import {Icon, Tag, Button,List,Cell } from 'vant'
+  import { getTopic } from '../../assets/js/http'
   export default {
     name: "topics",
     components: {
       [Icon.name]: Icon,
       [Tag.name]: Tag,
-      [Button.name]: Button
+      [Button.name]: Button,
+      [List.name]:List,
+      [Cell.name]:Cell
     },
     data() {
       return {
-        list: {},
+        list: [],
         limit: 10,
         page: 1,
+        oldData:[],
+        loading: false,
+        finished: false
       }
     },
     mounted() {
-      this.getData();
+      let page = this.page;
+      this.getData(page);
+      window.addEventListener('scroll', this.onScroll);
     },
     methods: {
-      getData() {
-        var url = this.HOST + '/topics';
-        this.$axios.get(url, {
-          params: {
-            limit: this.limit,
-            page: this.page,
-          }
-        }).then(res => {
-          console.log(res.data.data);
-          this.list = res.data.data;
-          this.page++;
-        }).catch(error => {
-          console.log(error);
+      getData(page) {
+        this.toast.loading();
+        let param = {
+          limit:this.limit,
+          page:page
+        }
+        getTopic(param).then(res=>{
+          console.log(res);
+            let data = res.data.data;
+            this.list = data;
+            this.toast.hideLoading();
         })
 
       },
+
       visitClick(count){
         this.toast.error('浏览数量:' + count);
+      },
+
+      onScroll(){
+        let that = this;
+        //获取可滚动容器高度
+        let innerHeight = document.querySelector('#topics').clientHeight;
+        //获取屏幕尺寸高度
+        let outerHeight = document.documentElement.clientHeight;
+        //获取滚动高度
+        let scrollHeight = document.documentElement.scrollTop;
+        if(innerHeight <= outerHeight+scrollHeight){
+          console.log('---------------到底啦！-------------------')
+          this.toast.loading();
+          let param = {
+            limit: this.limit,
+              page: this.page+1,
+          }
+          getTopic(param).then(res=>{
+            this.toast.hideLoading();
+            console.log(res);
+            let data = res.data.data;
+            let newData = that.list.concat(data);
+            that.list = newData;
+            that.page++;
+          })
+
+        }
       }
     }
 

@@ -1,5 +1,5 @@
 <template>
-  <div  >
+  <div  id="dev">
     <div class="pannel-container animated  flipInX"  ref="topicList" v-for="i in list">
       <div class='pannel-header'>
         <img :src="i.author.avatar_url" width="40" height="40"/>
@@ -65,8 +65,10 @@
     },
     methods: {
       getData() {
+        this.toast.loading();
         var url = this.HOST;
         this.$axios.get(url + '/topics',{
+
           params:{
             limit:this.limit,
             page:this.page,
@@ -77,6 +79,7 @@
           this.list = res.data.data;
           this.page++;
           this.limit+=10;
+          this.toast.hideLoading();
         }).catch(error => {
           console.log(error);
         })
