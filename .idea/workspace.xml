@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c4db028e-2306-4dd2-824b-f25aee8ac422" name="Default" comment="解决页面跳转无刷新问题">
-      <change afterPath="$PROJECT_DIR$/src/assets/images/avatar-default.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/js/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/js/base.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/js/http.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/personal/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TabBar/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TabBar/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Catalog/ask.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Catalog/ask.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Catalog/dev.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Catalog/dev.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Catalog/good.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Catalog/good.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Catalog/job.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Catalog/job.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Catalog/share.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Catalog/share.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/content/content.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/content/content.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/topics.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/topics.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="c4db028e-2306-4dd2-824b-f25aee8ac422" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -37,8 +17,8 @@
       <file leaf-file-name="topics.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/Home/topics.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="110" column="37" lean-forward="true" selection-start-line="110" selection-start-column="37" selection-end-line="110" selection-end-column="37" />
+            <state relative-caret-position="2398">
+              <caret line="110" column="37" selection-start-line="110" selection-start-column="37" selection-end-line="110" selection-end-column="37" />
               <folding>
                 <element signature="e#1544#1593#0" expanded="true" />
               </folding>
@@ -49,7 +29,7 @@
       <file leaf-file-name="toast.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/assets/js/toast.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1">
+            <state relative-caret-position="594">
               <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -61,7 +41,7 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1013">
+            <state relative-caret-position="44">
               <caret line="2" column="17" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="17" />
             </state>
           </provider>
@@ -163,7 +143,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,6 +209,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -317,6 +297,7 @@
       <workItem from="1560434177385" duration="3755000" />
       <workItem from="1561884832899" duration="61000" />
       <workItem from="1566659927020" duration="3571000" />
+      <workItem from="1566996363678" duration="667000" />
     </task>
     <task id="LOCAL-00001" summary="解决分类，精华、分享、问答、招聘、测试可以正常显示">
       <created>1530454228767</created>
@@ -346,25 +327,41 @@
       <option name="project" value="LOCAL" />
       <updated>1554163997734</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="封装请求接口">
+      <created>1566996422542</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1566996422542</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114622000" />
+    <option name="totallyTimeSpent" value="115289000" />
+  </component>
+  <component name="TodoView" selected-index="3">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49095607" visible="true" weight="0.24289985" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49095607" visible="true" weight="0.24289985" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32874355" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5002641" side_tool="true" weight="0.32924107" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info id="npm" order="2" sideWeight="0.50904393" side_tool="true" weight="0.18236174" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32874355" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.51290876" />
+      <window_info id="npm" order="2" sideWeight="0.50904393" side_tool="true" weight="0.18236174" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49973586" weight="0.32702237" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49973586" visible="true" weight="0.32702237" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4870912" />
       <window_info anchor="bottom" id="TypeScript" order="7" />
@@ -374,14 +371,13 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info id="npm" order="2" sideWeight="0.50904393" side_tool="true" weight="0.18236174" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49095607" visible="true" weight="0.24289985" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -389,12 +385,12 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="TypeScript" order="8" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.51290876" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.8777969" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49973586" weight="0.32702237" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002641" side_tool="true" weight="0.32924107" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Favorites" order="3" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -410,7 +406,8 @@
     <MESSAGE value="修复部分问题" />
     <MESSAGE value="分类body部分可以点击，链接对应的content" />
     <MESSAGE value="解决页面跳转无刷新问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="解决页面跳转无刷新问题" />
+    <MESSAGE value="封装请求接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="封装请求接口" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -703,7 +700,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/js/toast.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
+        <state relative-caret-position="594">
           <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
@@ -727,8 +724,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Home/topics.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="110" column="37" lean-forward="true" selection-start-line="110" selection-start-column="37" selection-end-line="110" selection-end-column="37" />
+        <state relative-caret-position="2398">
+          <caret line="110" column="37" selection-start-line="110" selection-start-column="37" selection-end-line="110" selection-end-column="37" />
           <folding>
             <element signature="e#1544#1593#0" expanded="true" />
           </folding>
@@ -751,7 +748,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1013">
+        <state relative-caret-position="44">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
