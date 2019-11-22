@@ -12,7 +12,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "axios": "^0.18.0",
-    "vant": "^1.0.1",
+    "vant": "^2.2.14",
     "vant-css": "^1.0.1",
     "vue": "^2.5.16",
     "vue-router": "^3.0.0",
